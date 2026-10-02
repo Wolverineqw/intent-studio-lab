@@ -2,6 +2,19 @@ const express = require("express");
 
 const app = express();
 
+const session =
+require("express-session");
+
+app.use(session({
+
+secret:"intentstudio",
+
+resave:false,
+
+saveUninitialized:true
+
+}));
+
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -37,6 +50,32 @@ app.post("/api/intent", (req, res) => {
 
 
 const PORT = process.env.PORT || 3000;
+
+app.post("/login",(req,res)=>{
+
+const {email,password}=req.body;
+
+if(
+email==="admin@test.com"
+&&
+password==="123456"
+){
+
+req.session.user=email;
+
+res.json({
+success:true
+});
+
+}else{
+
+res.json({
+success:false
+});
+
+}
+
+});
 
 app.listen(PORT, () => {
   console.log("Server Started");
