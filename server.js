@@ -23,14 +23,18 @@ app.get("/api/version", (req, res) => {
 
 app.post("/api/intent", (req, res) => {
 
-  const { intent } = req.body;
+    const { intent } = req.body;
 
-  res.json({
-    success: true,
-    receivedIntent: intent
-  });
+    res.json({
+        success: true,
+        receivedIntent: intent,
+        creativeA: "Social Media Ad",
+        creativeB: "Video Campaign",
+        creativeC: "Banner Campaign"
+    });
 
 });
+
 
 const PORT = process.env.PORT || 3000;
 
