@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta charset="UTF-8">
@@ -28,11 +27,11 @@ IntentStudio Dashboard
 <section class="hero">
 
 <h1>
-Create Campaign
+Campaign Generator
 </h1>
 
 <p>
-AI Powered Creative Studio
+Create ad campaigns instantly
 </p>
 
 </section>
@@ -41,19 +40,19 @@ AI Powered Creative Studio
 
 <div class="card">
 
-<h3>Campaign Prompt</h3>
+<h3>
+Describe your campaign
+</h3>
 
 <textarea
 id="prompt"
-placeholder="Describe your campaign..."
 style="
 width:100%;
 height:120px;
 padding:15px;
-background:#121212;
-color:white;
 border-radius:12px;
 ">
+
 </textarea>
 
 <br><br>
@@ -61,7 +60,9 @@ border-radius:12px;
 <button
 class="primary"
 onclick="generateCampaign()">
+
 Generate
+
 </button>
 
 </div>
@@ -76,54 +77,25 @@ Creative Results
 
 <div class="grid">
 
-<div class="card" id="creative1">
-Creative Slot 1
+<div class="card" id="result1">
+Creative A
 </div>
 
-<div class="card" id="creative2">
-Creative Slot 2
+<div class="card" id="result2">
+Creative B
 </div>
 
-<div class="card" id="creative3">
-Creative Slot 3
+<div class="card" id="result3">
+Creative C
 </div>
 
-<div class="card" id="creative4">
-Creative Slot 4
-</div>
-
-</div>
-
-</section>
-
-<section class="features">
-
-<h2>
-Performance
-</h2>
-
-<div class="grid">
-
-<div class="card">
-CTR
-<h2>+212%</h2>
-</div>
-
-<div class="card">
-CPA
-<h2>-38%</h2>
-</div>
-
-<div class="card">
-ROAS
-<h2>4.8x</h2>
+<div class="card" id="result4">
+Creative D
 </div>
 
 </div>
 
 </section>
-
-<script src="app.js"></script>
 
 <script>
 
@@ -132,26 +104,24 @@ function generateCampaign(){
 const prompt =
 document.getElementById("prompt").value;
 
-document.getElementById("creative1")
+document.getElementById("result1")
 .innerHTML =
-"Creative Variant A";
+"Generated from: " + prompt;
 
-document.getElementById("creative2")
+document.getElementById("result2")
 .innerHTML =
-"Creative Variant B";
+"Facebook Ad Variant";
 
-document.getElementById("creative3")
+document.getElementById("result3")
 .innerHTML =
-"Creative Variant C";
+"Instagram Ad Variant";
 
-document.getElementById("creative4")
+document.getElementById("result4")
 .innerHTML =
-"Creative Variant D";
-
+"Video Campaign Variant";
 }
 
 </script>
 
 </body>
-
 </html>
