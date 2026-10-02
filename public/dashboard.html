@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -31,7 +32,7 @@ Campaign Generator
 </h1>
 
 <p>
-Create ad campaigns instantly
+Generate AI campaigns instantly
 </p>
 
 </section>
@@ -41,14 +42,14 @@ Create ad campaigns instantly
 <div class="card">
 
 <h3>
-Describe your campaign
+Campaign Prompt
 </h3>
 
 <textarea
 id="prompt"
 style="
 width:100%;
-height:120px;
+height:140px;
 padding:15px;
 border-radius:12px;
 ">
@@ -59,7 +60,7 @@ border-radius:12px;
 
 <button
 class="primary"
-onclick="generateCampaign()">
+onclick="generateIntent()">
 
 Generate
 
@@ -72,25 +73,25 @@ Generate
 <section class="features">
 
 <h2>
-Creative Results
+Results
 </h2>
 
 <div class="grid">
 
 <div class="card" id="result1">
-Creative A
+Waiting...
 </div>
 
 <div class="card" id="result2">
-Creative B
+Waiting...
 </div>
 
 <div class="card" id="result3">
-Creative C
+Waiting...
 </div>
 
 <div class="card" id="result4">
-Creative D
+Waiting...
 </div>
 
 </div>
@@ -99,29 +100,59 @@ Creative D
 
 <script>
 
-function generateCampaign(){
+async function generateIntent(){
 
 const prompt =
 document.getElementById("prompt").value;
 
+try{
+
+const response =
+await fetch("/api/intent",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+intent:prompt
+})
+
+});
+
+const data =
+await response.json();
+
 document.getElementById("result1")
 .innerHTML =
-"Generated from: " + prompt;
+`Intent: ${data.receivedIntent}`;
 
 document.getElementById("result2")
 .innerHTML =
-"Facebook Ad Variant";
+"Creative Variant A";
 
 document.getElementById("result3")
 .innerHTML =
-"Instagram Ad Variant";
+"Creative Variant B";
 
 document.getElementById("result4")
 .innerHTML =
-"Video Campaign Variant";
+"Creative Variant C";
+
+}catch(err){
+
+document.getElementById("result1")
+.innerHTML =
+"API Error";
+
+}
+
 }
 
 </script>
 
 </body>
+
 </html>
