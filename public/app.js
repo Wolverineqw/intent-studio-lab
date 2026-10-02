@@ -1,1 +1,19 @@
-console.log("IntentStudio AI Loaded");
+
+function toggleMenu(){
+
+const menu =
+document.getElementById("mobileMenu");
+
+if(menu.style.display==="flex"){
+
+menu.style.display="none";
+
+}else{
+
+menu.style.display="flex";
+
+}
+
+}
+
+console.log("IntentStudio loaded");
