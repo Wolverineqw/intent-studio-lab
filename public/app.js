@@ -1,19 +1,28 @@
 
-function toggleMenu(){
+console.log("IntentStudio Loaded");
 
-const menu =
-document.getElementById("mobileMenu");
+function toggleMenu() {
 
-if(menu.style.display==="flex"){
+    const menu =
+        document.getElementById("mobileMenu");
 
-menu.style.display="none";
+    if (!menu) return;
 
-}else{
-
-menu.style.display="flex";
-
+    menu.classList.toggle("show-menu");
 }
 
+function goToDashboard() {
+    window.location.href = "dashboard.html";
 }
 
-console.log("IntentStudio loaded");
+function scrollToFeatures() {
+
+    const features =
+        document.getElementById("features");
+
+    if (features) {
+        features.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
